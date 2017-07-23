@@ -12,4 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue(App).$mount('hello')
 
   console.log(app)
-})
+});
