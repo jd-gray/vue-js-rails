@@ -7,6 +7,13 @@
     <input v-model="content" placeholder="Content">
 
     <button v-on:click="submit">Submit</button>
+
+    <ol>
+      <li v-for="todo in todos">
+        <b>Title:</b> {{ todo.title }}
+        <b>Content:</b> {{ todo.content }}
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -20,11 +27,14 @@
   export default {
     data: {
       title: '',
-      content: ''
+      content: '',
+      todos: gon.todos
     },
     methods: {
       submit: function () {
-        this.$http.post('/todos', { title: this.title, content: this.content });
+        this.$http.post('/todos', { title: this.title, content: this.content }).then(response => {
+          this.todos.unshift(response.body);
+        });
         this.title = '';
         this.content = '';
       }
@@ -34,10 +44,3 @@
 
 <style scoped>
 </style>
-
-<!--<ol>-->
-  <!--<li v-for="compliment in compliments">-->
-    <!--<b>Name:</b> {{ compliment.name }}-->
-    <!--<b>Compliment:</b> {{ compliment.content }}-->
-  <!--</li>-->
-<!--</ol>-->
