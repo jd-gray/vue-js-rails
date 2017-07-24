@@ -1,24 +1,28 @@
-# README
+# Tutorial: Build Rails forms using Vuejs and Webpacker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the code for `vue-js-rails` form tutorial.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Clone the repository:
 
-* System dependencies
+```
+git clone https://github.com/jd-gray/vue-js-rails.git
+```
 
-* Configuration
+Create and migrate your database:
 
-* Database creation
+``` 
+rails db:create db:migrate
+```
 
-* Database initialization
+Run your local rails and webpacker server in seperate tabs:
 
-* How to run the test suite
+```
+rails s
+./bin/webpack-dev-server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
